@@ -25,3 +25,18 @@ Postgres, sur plusieurs tentatives successives.
 **Action corrective** : documenter clairement, dans le `README.md` du service, la distinction
 entre les deux fichiers `.env` (racine du service vs `api/`) pour éviter de reproduire l'erreur
 lors du prochain service ajouté (Mealie, Vaultwarden).
+
+## 2026-09-17 — Site inaccessible en IPv6 depuis l'extérieur (iPhone 4G)
+
+**Impact** : site inaccessible pour les visiteurs sur réseau mobile utilisant IPv6 par défaut.
+
+**Cause racine** : le VPS Contabo répond correctement en IPv6 en local (confirmé via
+`curl -6` depuis le serveur lui-même), mais le trafic IPv6 externe n'atteint jamais le
+serveur — problème de routage réseau côté hébergeur, pas de configuration côté VPS/DNS
+(confirmé via test-ipv6.com : DNS AAAA correct, connectivité IPv6 externe en échec).
+
+**Résolution** : retrait temporaire de l'enregistrement AAAA chez IONOS, retour à l'IPv4
+seul en attendant. Ticket support ouvert chez Contabo.
+
+**Action corrective** : ne pas publier d'enregistrement AAAA avant d'avoir validé la
+connectivité IPv6 externe (pas seulement locale) pour tout futur service.

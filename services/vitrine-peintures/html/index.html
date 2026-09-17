@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mes peintures</title>
+<meta name="description" content="Galerie et univers d'un peintre — œuvres et histoires.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="wordmark">Ju Durand-Masliah</a>
+  <nav>
+    <a href="/contact.html">Me contacter</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-frame" style="background-image: url('images/hero/cover.jpg');"></div>
+  <div class="hero-text">
+    <p class="hero-kicker">Mafia Bears</p>
+    <h1>4 ours, une Mafia<br>et les scènes qui vont avec.</h1>
+  </div>
+</section>
+
+<main class="gallery">
+
+  <!-- CHAPITRE — œuvre ancienne, une seule photo -->
+  <article class="piece">
+    <div class="piece-media">
+      <img src="images/piece-1/1.jpg" alt="Titre de l'oeuvre 1" loading="lazy">
+    </div>
+    <div class="piece-text">
+      <p class="piece-meta">2026 — acrylique sur toile</p>
+      <h2>Casual Bridge Night</h2>
+      <p>Toile réalisée pour Martin et Alex</p>
+    </div>
+  </article>
+
+  <article class="piece">
+    <div class="piece-media">
+      <img src="images/piece-2/2.jpg" alt="Titre de l'oeuvre 2" loading="lazy">
+    </div>
+    <div class="piece-text">
+      <p class="piece-meta">2025 — Aquarelle sur Papier</p>
+      <h2>Sunset Stair</h2>
+      <p>Toile réalisée pour Clemence</p>
+    </div>
+  </article>
+
+  <article class="piece">
+    <div class="piece-media">
+      <img src="images/piece-3/3.jpg" alt="Titre de l'oeuvre 3" loading="lazy">
+    </div>
+    <div class="piece-text">
+      <p class="piece-meta">2026 — Aquarelle sur Papier</p>
+      <h2>Ours au vent</h2>
+      <p>Contribution a mon carnet</p>
+    </div>
+  </article>
+
+  <article class="piece">
+    <div class="piece-media">
+      <img src="images/piece-4/4.jpg" alt="Titre de l'oeuvre 4" loading="lazy">
+    </div>
+    <div class="piece-text">
+      <p class="piece-meta">2025 — Aquarelle sur Papier</p>
+      <h2>Roaming Bears</h2>
+      <p>Concept du projet</p>
+    </div>
+  </article>
+
+  <!-- CHAPITRE — œuvre récente, plusieurs photos en carrousel -->
+  <!-- <article class="piece piece-reverse">
+    <div class="piece-media">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track">
+          <img src="images/piece-2/1.jpg" alt="Étape 1" loading="lazy">
+          <img src="images/piece-2/2.jpg" alt="Étape 2" loading="lazy">
+          <img src="images/piece-2/3.jpg" alt="Étape 3" loading="lazy">
+        </div>
+        <button class="carousel-btn prev" aria-label="Image précédente">‹</button>
+        <button class="carousel-btn next" aria-label="Image suivante">›</button>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
+    <div class="piece-text">
+      <p class="piece-meta">2026 — acrylique, série en cours</p>
+      <h2>Titre de la série</h2>
+      <p>Pour les pièces récentes, raconte le processus : les esquisses, les essais de couleur,
+      ce qui a changé entre la première et la dernière photo. Le carrousel ci-contre permet de
+      montrer l'évolution, pas juste le résultat final.</p>
+    </div>
+  </article> //
+
+  <!-- Duplique un bloc <article class="piece"> (ou piece-reverse pour alterner) par œuvre -->
+
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 Ju Durand-Masliah — <a href="/contact.html">me contacter pour une commande</a></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

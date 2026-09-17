@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Mes peintures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .contact-wrap { max-width: 560px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+  .contact-wrap h1 { font-family: var(--serif); font-weight: 400; font-size: 2.2rem; margin-bottom: 0.5rem; }
+  .contact-wrap > p { color: var(--text-muted); margin-bottom: 2.5rem; }
+  form { display: flex; flex-direction: column; gap: 1.1rem; }
+  label { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.35rem; display: block; }
+  input, textarea {
+    width: 100%; background: var(--surface); border: 1px solid var(--border);
+    color: var(--text); padding: 0.75rem 0.9rem; border-radius: 3px; font-family: var(--sans); font-size: 1rem;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+  textarea { min-height: 140px; resize: vertical; }
+  button[type=submit] {
+    background: var(--accent); color: var(--bg); border: none; padding: 0.85rem 1.5rem;
+    border-radius: 3px; font-size: 1rem; font-weight: 600; cursor: pointer; align-self: flex-start;
+  }
+  button[type=submit]:hover { opacity: 0.9; }
+  #statut { margin-top: 1rem; color: var(--accent-quiet); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="wordmark">Ju Durand-Masliah</a>
+  <nav><a href="/">← Retour à la galerie</a></nav>
+</header>
+
+<div class="contact-wrap">
+  <h1>Une idée de commande ?</h1>
+  <p>Décris-moi ton projet — format, ambiance, délai souhaité — je reviens vers toi rapidement.</p>
+
+  <form id="contact-form">
+    <div>
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" required>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+    </div>
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" required></textarea>
+    </div>
+    <button type="submit">Envoyer</button>
+  </form>
+  <p id="statut"></p>
+</div>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const statut = document.getElementById('statut');
+  statut.textContent = 'Envoi en cours...';
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        nom: document.getElementById('nom').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      })
+    });
+    statut.textContent = res.ok ? 'Message envoyé — merci !' : 'Une erreur est survenue, réessaie plus tard.';
+    if (res.ok) e.target.reset();
+  } catch {
+    statut.textContent = 'Une erreur est survenue, réessaie plus tard.';
+  }
+});
+</script>
+</body>
+</html>

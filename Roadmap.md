@@ -16,14 +16,16 @@
 - [x] Reverse proxy (Nginx) installé sur le VPS
 - [x] HTTPS via Let's Encrypt
 - [ ] Premier service exposé pour valider toute la chaîne (Uptime Kuma)
+- [ ] IPv6 (AAAA retiré temporairement — ticket ouvert chez Contabo, routage externe non fonctionnel)
 
 ## Phase 3 — Sécurité 🔶 en cours
-- [x] Durcissement SSH (clé uniquement, pas de mot de passe) — en attente d'ajout des clés des autres machines
+- [x] Connexion par clé SSH fonctionnelle pour jdura
+- [ ] Durcissement complet (désactivation de l'authentification par mot de passe) — en attente d'ajout des clés des autres machines
 - [ ] Fail2ban
 - [ ] VPN WireGuard pour l'accès au matériel local
 
 ## Phase 4 — Applications 🔶 en cours
-- [x] Vitrine peintures (site statique + API contact FastAPI) — **en cours de démarrage**
+- [x] Vitrine peintures — fonctionnelle (design, HTTPS, contact email + Postgres)
 - [ ] Mealie (gestion de recettes)
 - [ ] Vaultwarden
 - [ ] Pi-hole (matériel local)
